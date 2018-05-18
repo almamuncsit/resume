@@ -69,8 +69,8 @@
           <h1 class="mb-0">{{ about.first_name }}
             <span class="text-primary">{{ about.last_name }}</span>
           </h1>
-          <div class="subheading mb-5">{{ about.address }} · {{ about.mobile }} ·
-            <a href="mailto:name@email.com">{{ about.email }}</a>
+          <div class="subheading mb-5 address">{{ about.address }} · {{ about.mobile }} ·
+            <a class="email" href="mailto:name@email.com">{{ about.email }}</a>
           </div>
           <p class="mb-5"> {{ about.description | safe }} </p>
           <ul class="list-inline list-social-icons mb-0">
@@ -195,33 +195,70 @@
 
 
 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
         <div class="my-auto">
           <h2 class="mb-5">Skills</h2>
-          <ul class="fa-ul mb-0">
               {% for skillCategory in skillCategories %}
-                <li>
+                  <div class="single-skill">
                   <i class="fa-li fa fa-check"></i>
-                    <strong class="text-uppercase"> {{ skillCategory.title }} </strong>
-                    <table class="table">
+                    <strong class="text-uppercase skill-category-title"> {{ skillCategory.title }} </strong>
+                    <div class="row clearfix">
                         {% for skill in skillCategory.skill_set.all %}
-                            <tr>
-                                <th class="text-right" style="width: 190px">{{ skill.title }} </th>
-                                <td>
+                        <div class="col-md-6 skill-item">
+                            <div class="row clearfix">
+                                <div class="col-md-4 text-right skill-title"> {{ skill.title }} : </div>
+                                <div class="col-md-8">
                                     <div class="progress">
                                       <div class="progress-bar progress-bar-striped {{ skill.color }}" role="progressbar" style="width: {{ skill.level }}%" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100">
-                                          {{ skill.level }}%
+{#                                          {{ skill.level }}%#}
                                       </div>
                                     </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </div>
+                        </div>
                         {% endfor %}
-                    </table>
-                </li>
+                    </div>
+                  </div>
               {% endfor %}
-          </ul>
         </div>
       </section>
+
+
+
+
+
+
+
+
+
+{#      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">#}
+{#        <div class="my-auto">#}
+{#          <h2 class="mb-5">Skills</h2>#}
+{#          <ul class="fa-ul mb-0">#}
+{#              {% for skillCategory in skillCategories %}#}
+{#                <li>#}
+{#                  <i class="fa-li fa fa-check"></i>#}
+{#                    <strong class="text-uppercase"> {{ skillCategory.title }} </strong>#}
+{#                    <table class="table">#}
+{#                        {% for skill in skillCategory.skill_set.all %}#}
+{#                            <tr>#}
+{#                                <th class="text-right" style="width: 190px">{{ skill.title }} </th>#}
+{#                                <td>#}
+{#                                    <div class="progress">#}
+{#                                      <div class="progress-bar progress-bar-striped {{ skill.color }}" role="progressbar" style="width: {{ skill.level }}%" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100">#}
+{#                                          {{ skill.level }}%#}
+{#                                      </div>#}
+{#                                    </div>#}
+{#                                </td>#}
+{#                            </tr>#}
+{#                        {% endfor %}#}
+{#                    </table>#}
+{#                </li>#}
+{#              {% endfor %}#}
+{#          </ul>#}
+{#        </div>#}
+{#      </section>#}
 
 
 

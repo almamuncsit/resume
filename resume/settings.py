@@ -25,7 +25,7 @@ SECRET_KEY = 'wieis@p=r=rd=dmnb)%#_6w9p1@e6xgvo+#b)m2iaz5u4e^+py'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['al-mamun.me', '206.189.87.243']
+ALLOWED_HOSTS = ['al-mamun.me', '206.189.87.243', '127.0.0.1']
 
 
 # Application definition
@@ -125,6 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL='/static/'
-STATIC_ROOT='/home/msarkar/www/resume/static/'
+STATIC_ROOT=os.path.join(BASE_DIR, 'static/')
 MEDIA_URL='/media/'
-MEDIA_ROOT='/home/msarkar/www/resume/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
